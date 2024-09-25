@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ivy Project</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/css_bootstrapPart.css" />
+  </head>
+  <body>
+    <section class="header-navbar">
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+          <a href="../html/index.html" class="navbar-brand me-auto"
+            ><img src="../image/logo.png" alt="Logo"
+          /></a>
+
+          <div
+            class="offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <img src="../image/logo.png" alt="Logo" />
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a href="../html/index.html" class="nav-link mx-lg-2">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2">NAM</a>
+                  <div class="nav-item nav-item-submenu">
+                    <ul class="sub-menu">
+                      <li><a href>Hàng mới về</a></li>
+                      <li><a href>Collection</a></li>
+                      <li>
+                        <a href>Áo</a>
+                        <ul>
+                          <li><a href>Áo sơ mi</a></li>
+                          <li><a href>Áo thun</a></li>
+                          <li><a href>Áo Vest</a></li>
+                          <li><a href>Áo khoác</a></li>
+                          <li><a href>Áo len</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href>Quần</a>
+                        <ul>
+                          <li><a href>Quần jean</a></li>
+                          <li><a href>Quần lửng</a></li>
+                          <li><a href>Quần dài</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2 aria-current=page active"
+                    >NỮ</a
+                  >
+                  <div class="nav-item nav-item-submenu">
+                    <ul class="sub-menu">
+                      <li><a href>Hàng mới về</a></li>
+                      <li><a href>Collection</a></li>
+                      <li>
+                        <a href>Áo</a>
+                        <ul>
+                          <li><a href>Áo sơ mi</a></li>
+                          <li><a href>Áo thun</a></li>
+                          <li><a href>Áo Vest</a></li>
+                          <li><a href>Áo khoác</a></li>
+                          <li><a href>Áo len</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href>Quần</a>
+                        <ul>
+                          <li><a href>Quần jean</a></li>
+                          <li><a href>Quần lửng</a></li>
+                          <li><a href>Quần dài</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2">TRẺ EM</a>
+                  <div class="nav-item nav-item-submenu">
+                    <ul class="sub-menu">
+                      <li><a href>Hàng mới về</a></li>
+                      <li><a href>Collection</a></li>
+                      <li>
+                        <a href>Áo</a>
+                        <ul>
+                          <li><a href>Áo sơ mi</a></li>
+                          <li><a href>Áo thun</a></li>
+                          <li><a href>Áo Vest</a></li>
+                          <li><a href>Áo khoác</a></li>
+                          <li><a href>Áo len</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href>Quần</a>
+                        <ul>
+                          <li><a href>Quần jean</a></li>
+                          <li><a href>Quần lửng</a></li>
+                          <li><a href>Quần dài</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2 red-p">SALE</a>
+                  <div class="nav-item nav-item-submenu">
+                    <ul class="sub-menu">
+                      <li><a href>Hàng mới về</a></li>
+                      <li><a href>Collection</a></li>
+                      <li>
+                        <a href>Áo</a>
+                        <ul>
+                          <li><a href>Áo sơ mi</a></li>
+                          <li><a href>Áo thun</a></li>
+                          <li><a href>Áo Vest</a></li>
+                          <li><a href>Áo khoác</a></li>
+                          <li><a href>Áo len</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href>Quần</a>
+                        <ul>
+                          <li><a href>Quần jean</a></li>
+                          <li><a href>Quần lửng</a></li>
+                          <li><a href>Quần dài</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2">BST</a>
+                  <div class="nav-item nav-item-submenu">
+                    <ul class="sub-menu">
+                      <li><a href>Hàng mới về</a></li>
+                      <li><a href>Collection</a></li>
+                      <li>
+                        <a href>Áo</a>
+                        <ul>
+                          <li><a href>Áo sơ mi</a></li>
+                          <li><a href>Áo thun</a></li>
+                          <li><a href>Áo Vest</a></li>
+                          <li><a href>Áo khoác</a></li>
+                          <li><a href>Áo len</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href>Quần</a>
+                        <ul>
+                          <li><a href>Quần jean</a></li>
+                          <li><a href>Quần lửng</a></li>
+                          <li><a href>Quần dài</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2">KHẨU TRANG</a>
+                  <div class="nav-item nav-item-submenu">
+                    <ul class="sub-menu">
+                      <li><a href>Hàng mới về</a></li>
+                      <li><a href>Collection</a></li>
+                      <li>
+                        <a href>Áo</a>
+                        <ul>
+                          <li><a href>Áo sơ mi</a></li>
+                          <li><a href>Áo thun</a></li>
+                          <li><a href>Áo Vest</a></li>
+                          <li><a href>Áo khoác</a></li>
+                          <li><a href>Áo len</a></li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href>Quần</a>
+                        <ul>
+                          <li><a href>Quần jean</a></li>
+                          <li><a href>Quần lửng</a></li>
+                          <li><a href>Quần dài</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+
+                <li class="nav-item">
+                  <a href="" class="nav-link mx-lg-2">THÔNG TIN</a>
+                  <div class="nav-item nav-item-submenu"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a class="me-3 search-place">
+            <input placeholder="Tìm kiếm..." type="text" /><i
+              class="fa fa-search"
+            ></i>
+          </a>
+          <a href="" class="shop-cart fa fa-shopping-cart"></a>
+          <a href="" class="login-button fa fa-user"></a>
+          <button
+            class="navbar-toggler"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
+    </section>
+    <!---------------------------- Product -------------------------->
+    <section class="s-product">
+      <div class="container">
+        <div class="d-sm-inline-flex product-top">
+          <p>Trang chủ</p>
+          <span>&#10230; </span>
+          <p class="ms-1 me-1">Nữ</p>
+          <span>&#10230; </span>
+          <p class="ms-1 me-1">Hàng nữ mới về</p>
+          <span>&#10230; </span>
+          <p class="ms-1 me-1">Đầm họa tiết mã số 0011</p>
+        </div>
+        <div class="product-content d-inline-flex">
+          <!-- Left: image(big and small) -->
+          <div class="product-content-left d-inline-flex w-50">
+            <div class="product-content-left-bigImg pt-5 w-80 pe-3">
+              <img src="../image/sp1.webp" alt="Ảnh sản phẩm" />
+            </div>
+            <div class="product-content-left-smallImg w-20">
+              <i
+                class="fa fa-chevron-up pb-3 d-flex justify-content-center"
+              ></i>
+              <img src="../image/sp1.webp" alt="Ảnh sản phẩm" />
+              <img src="../image/sp2.webp" alt="Ảnh sản phẩm " />
+              <img src="../image/sp3.webp" alt="Ảnh sản phẩm w-20" />
+              <img src="../image/sp4.webp" alt="Ảnh sản phẩm " />
+              <i
+                class="fa fa-chevron-down fa fa-chevron-up d-flex justify-content-center pt-3"
+              ></i>
+            </div>
+          </div>
+          <!-- Right: text -->
+          <div class="product-content-right ps-4 w-50">
+            <div class="product-content-right-product-name">
+              <h1 class="fw-bold fs-6">ĐẦM HỌA TIẾT MS 001</h1>
+              <p class="text-secondary fw-light">MS: 003132</p>
+            </div>
+            <div class="product-content-right-product-price mt-2">
+              <p class="fs-5 fw-bold">3.000.000<sup>đ</sup></p>
+            </div>
+            <div class="product-content-right-product-color mt-2">
+              <p>
+                <span class="fw-bold">Màu sắc:</span>Họa tiết đen trắng
+                <span class="p-red">*</span>
+              </p>
+            </div>
+            <div class="product-content-right-product-color-img">
+              <img class="src" ="../image/color-black.png" alt="Màu đen" />
+            </div>
+            <div class="product-content-right-product-size">
+              <p class="fw-bold mt-3">Size:</p>
+              <div class="size">
+                <span>S</span>
+                <span>M</span>
+                <span>L</span>
+                <span>XXL</span>
+                <span>XXXL</span>
+              </div>
+            </div>
+            <div
+              class="product-content-right-product-quantity d-inline-flex mt-2"
+            >
+              <p class="fw-bold pe-3">Số lượng:</p>
+              <input class="w-20" type="number" min="1" value="1" />
+            </div>
+            <p class="text-danger">Vui lòng chọn size!</p>
+            <div class="product-content-right-product-button">
+              <button
+                class="d-inline-flex justify-content-evenly bg-light align-items-center"
+              >
+                <i class="fa fa-shopping-cart"></i>
+                <p class="align-self-center">MUA HÀNG</p>
+              </button>
+              <button class="btn btn-outline-primary">
+                <p>TÌM TẠI CỬA HÀNG</p>
+              </button>
+            </div>
+            <div
+              class="product-content-right-product-icon d-inline-flex w-30 mt-3 mb-3 justify-content-between"
+            >
+              <div
+                class="product-content-right-product-icon-item d-inline-flex"
+              >
+                <i class="fa fa-phone"></i>
+                <p>Hotline</p>
+              </div>
+              <div
+                class="product-content-right-product-icon-item ms-3 d-inline-flex"
+              >
+                <i class="fa fa-comments"></i>
+                <p>Chat</p>
+              </div>
+              <div
+                class="product-content-right-product-icon-item ms-3 d-inline-flex"
+              >
+                <i class="fa fa-envelope"></i>
+                <p>Mail</p>
+              </div>
+            </div>
+            <div class="product-content-right-product-QR">
+              <img src="qrcodeSP1.png" alt="QR code" />
+            </div>
+            <div class="product-content-right-bottom pt-5 w-100">
+              <div class="product-content-right-bottom-content-big">
+                <div
+                  class="product-content-right-bottom-content justify-content-between pt-5 d-inline-flex w-100"
+                >
+                  <div class="product-content-right-bottom-title gioithieu">
+                    <p>GIỚI THIỆU</p>
+                  </div>
+                  <div class="product-content-right-bottom-title chitiet">
+                    <p>CHI TIẾT</p>
+                  </div>
+                  <div class="product-content-right-bottom-title baoquan">
+                    <p>BẢO QUẢN</p>
+                  </div>
+                </div>
+                <div class="product-content-right-bottom-content-details pt-3">
+                  <p>
+                    Tinh tế, nhẹ nhàng mà quyến rũ, thiết kế Allure họa tiết
+                    mang đến vẻ đẹp sang trọng và đầy cuốn hút cho phái đẹp.
+                    Chất liệu lụa cao cấp mềm mại giúp chiếc đầm không chỉ tôn
+                    lên vẻ ngoài quý phái mà còn mang đến cảm giác thoải mái cho
+                    người mặc.&nbsp;
+                  </p>
+                  <div
+                    class="product-content-right-bottom-top d-inline-flex justify-content-center"
+                  >
+                    <i class="fa fa-caret-down"></i>
+                  </div>
+                  <p>
+                    Thiết kế tay dài thanh lịch, phù hợp cho môi trường công sở
+                    hay các dịp trang trọng. Điểm nổi bật của thiết kế nằm ở nền
+                    họa tiết độc quyền, được nhà thiết kế IVY moda lên ý tưởng
+                    cho xu hướng Thu Đông sắp tới, nổi bật sự nữ tính và độc
+                    đáo, hứa hẹn sẽ trở thành xu hướng thời trang đáng để mong
+                    đợi.
+                  </p>
+
+                  <!-- Thêm nội dung cần ẩn -->
+                  <div class="read-more" style="display: none">
+                    <p>
+                      Đầm dáng xòe nhẹ, eo ôm nhẹ, tạo sự bay bổng, nhẹ nhàng
+                      khi di chuyển. Allure dễ dàng phối hợp cùng giày cao gót
+                      và phụ kiện, chiếc đầm này sẽ giúp bạn nổi bật trong mọi
+                      sự kiện.
+                    </p>
+
+                    <p><strong>Thông tin mẫu:</strong></p>
+                    <p><strong>Chiều cao: </strong> 165 cm</p>
+                    <p><strong>Cân nặng: </strong> 49 kg</p>
+                    <p><strong>Số đo 3 vòng: </strong>81-63-90 cm</p>
+                    <p>Mẫu mặc size S</p>
+
+                    <p>
+                      Lưu ý: Màu sắc sản phẩm thực tế sẽ có sự chênh lệch nhỏ so
+                      với ảnh do điều kiện ánh sáng khi chụp và màu sắc hiển thị
+                      qua màn hình máy tính/ điện thoại.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="product-content-right-bottom-content-details2">
+                  <table class="" width="70%">
+                    <tr>
+                      <td style="padding-bottom: 5px">
+                        <b>Dòng sản phẩm</b>
+                      </td>
+                      <td style="padding-bottom: 5px">Ladies</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px">
+                        <b>Nhóm sản phẩm</b>
+                      </td>
+                      <td style="padding-bottom: 5px">Đầm</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px"><b>Cổ áo</b></td>
+                      <td style="padding-bottom: 5px">Cổ tròn</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px"><b>Tay áo</b></td>
+                      <td style="padding-bottom: 5px">Tay dài</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px"><b>Kiểu dáng</b></td>
+                      <td style="padding-bottom: 5px">Đầm xòe</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px"><b>Độ dài</b></td>
+                      <td style="padding-bottom: 5px">Qua gối</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px"><b>Họa tiết</b></td>
+                      <td style="padding-bottom: 5px">Họa tiết khác</td>
+                    </tr>
+                    <tr>
+                      <td style="padding-bottom: 5px"><b>Chất liệu</b></td>
+                      <td style="padding-bottom: 5px">Lụa</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="product-content-right-bottom-content-details3">
+                  <p>Chi tiết bảo quản sản phẩm :&nbsp;</p>
+
+                  <p>
+                    <strong
+                      >* Các sản phẩm thuộc dòng cao cấp (Senora) và áo khoác
+                      (dạ, tweed,&nbsp;lông, phao) chỉ giặt khô,&nbsp;tuyệt đối
+                      không giặt ướt.</strong
+                    >
+                  </p>
+
+                  <p>
+                    * Vải dệt kim: sau khi giặt sản phẩm phải được phơi ngang
+                    tránh bai giãn.
+                  </p>
+
+                  <p>* Vải voan, lụa, chiffon nên giặt bằng tay.</p>
+
+                  <p>
+                    * Vải thô, tuytsi, kaki không có phối hay trang trí đá cườm
+                    thì có thể giặt máy.
+                  </p>
+
+                  <p>
+                    * Vải thô, tuytsi, kaki có&nbsp;phối màu tương phản hay
+                    trang trí voan, lụa, đá cườm thì cần giặt tay.
+                  </p>
+
+                  <p>
+                    * Đồ Jeans nên hạn chế giặt bằng máy giặt vì sẽ làm phai màu
+                    jeans. Nếu giặt thì&nbsp;nên lộn trái sản phẩm khi giặt,
+                    đóng khuy, kéo khóa, không nên giặt chung cùng đồ sáng màu,
+                    tránh dính màu vào các sản phẩm khác.&nbsp;
+                  </p>
+
+                  <p>
+                    * Các sản phẩm cần được giặt ngay không ngâm tránh bị loang
+                    màu, phân biệt màu và loại vải để tránh trường hợp vải phai.
+                    Không nên giặt sản phẩm với xà phòng có chất tẩy mạnh, nên
+                    giặt cùng xà phòng pha loãng.
+                  </p>
+
+                  <p>
+                    * Các sản phẩm có thể&nbsp;giặt bằng máy thì chỉ nên để chế
+                    độ giặt nhẹ, vắt mức trung bình và nên phân các loại sản
+                    phẩm cùng màu và cùng loại vải khi giặt.
+                  </p>
+
+                  <p>
+                    * Nên phơi sản phẩm tại chỗ thoáng mát, tránh ánh nắng trực
+                    tiếp sẽ dễ bị phai bạc màu, nên làm khô quần áo bằng cách
+                    phơi ở những điểm gió sẽ giữ màu vải tốt hơn.
+                  </p>
+
+                  <p>
+                    * Những chất vải 100% cotton, không nên phơi sản phẩm bằng
+                    mắc áo mà nên vắt ngang sản phẩm lên dây phơi để tránh tình
+                    trạng rạn vải.
+                  </p>
+
+                  <p>
+                    * Khi ủi sản phẩm bằng bàn là và sử dụng chế độ hơi nước sẽ
+                    làm cho sản phẩm dễ ủi phẳng, mát và không bị cháy, giữ màu
+                    sản phẩm được đẹp và bền lâu hơn. Nhiệt độ của bàn là tùy
+                    theo từng loại vải.&nbsp;
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-------------------- Footer ----------------------------------->
+    <section class="footer">
+      <div class="footer-top">
+        <li>
+          <a href=""><img src="../image/img-congthuong.png" alt="" /></a>
+        </li>
+        <li><a href="">Liên hệ</a></li>
+        <li><a href="">Tuyển dụng</a></li>
+        <li><a href="">Giới thiệu</a></li>
+        <li>
+          <a href="" class="fa fa-facebook-f"></a>
+          <a href="" class="fa fa-twitter"></a>
+          <a href="" class="fa fa-youtube"></a>
+        </li>
+      </div>
+
+      <div class="footer-center">
+        <p>
+          Công ty Đồ si Anh Tú với số đăng kí kinh doanh: 08 676767 75 <br />
+          Địa chỉ kinh doanh: 55/22 đường số 12, P. Bình Hưng Hòa A, Q.Bình Tân,
+          Hồ Chí Minh, Việt Nam - 08 67676775 <br />
+          Đặt hàng online: <span>08 67676775.</span>
+        </p>
+      </div>
+      <div class="footer-bottom">
+        <p>@Dosianhtu All right reserved</p>
+      </div>
+    </section>
+    <script src="../js/script-main.js"></script>
+    <script src="../js/product.js"></script>
+  </body>
+</html>

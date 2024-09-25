@@ -1,0 +1,97 @@
+.navbar {
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 80px;
+}
+.navbar.sticky {
+  background-color: aliceblue;
+}
+.navbar:hover {
+  background-color: aliceblue;
+}
+.login-button {
+  background-color: #333;
+  color: aliceblue;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+  margin-left: 5px;
+}
+.login-button:hover {
+  background-color: green;
+}
+.shop-cart:hover {
+  background-color: green;
+}
+.shop-cart {
+  background-color: #333;
+  color: aliceblue;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+  border-radius: 50px;
+}
+.shop-cart p {
+  margin-top: 18px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+.navbar-toggler {
+  padding-left: 10px;
+  border: none;
+}
+.nav-link {
+  color: #333;
+  position: relative;
+  font-weight: 600;
+}
+.nav-link::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  visibility: hidden;
+}
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%;
+  visibility: visible;
+}
+@media (min-width: 991px) {
+  .nav-link::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    visibility: hidden;
+  }
+  .nav-link:hover::before,
+  .nav-link.active::before {
+    width: 100%;
+    visibility: visible;
+  }
+}
+.nav-item-submenu {
+  background-color: aliceblue;
+  margin-top: 320px;
+  width: 100%;
+  display: none;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.block ul li {
+  display: block;
+}
