@@ -39,7 +39,7 @@
                 <div
                     class="col-4 header-middle_logo d-flex justify-content-center ps-5 ms-5 d-flex">
                     <div class="logo me-5 pe-5">
-                        <a href="../../html/index.html"><img src="../../image/logo.png" alt="logo" /></a>
+                        <a href="../../html/index.html"><img class="ps-5 ms-3" style="width:70%; height:auto;" src="../../image/logo.png" alt="logo" /></a>
                     </div>
                 </div>
                 <div

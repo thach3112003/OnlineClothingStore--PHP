@@ -8,7 +8,7 @@
      <div class="menu-slider w-100">
          <ul class="nav flex-column w-100">
              <li class="nav-item w-100">
-                 <a href="" class="nav-link">
+                 <a href="category.php" class="nav-link">
                      <i class="fa fa-layer-group"></i>
                      <p class="menu-item">Phân loại</p>
                  </a>
