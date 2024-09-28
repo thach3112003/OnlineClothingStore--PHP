@@ -89,4 +89,15 @@ class category
         </script>
     ";
     }
+    public function delete_category($id)
+    {
+        $query = "DELETE FROM tbl_category WHERE catId = '$id'";
+        $result = $this->db->delete($query);
+
+        if ($result) {
+            return $this->showModal('Thông báo', 'Xóa thành công!', 'success');
+        } else {
+            return $this->showModal('Thông báo', 'Xóa thất bại!', 'danger');
+        }
+    }
 }
