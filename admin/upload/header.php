@@ -31,13 +31,14 @@
             <header
                 class="header w-100 ps-5 pe-5 navbar navbar-expand-sm expand-header d-flex">
                 <div class="col-4 header-left-dashboard d-flex">
+                    <input type="checkbox" id="toggle" class="d-none">
                     <label for="toggle" class="side-toggle mt-1">
                         <span id="menu-toggle" class="fa fa-bars me-3"></span>
                     </label>
                     <h4>Dashboard</h4>
                 </div>
                 <div
-                    class="col-4 header-middle_logo d-flex justify-content-center ps-5 ms-5 d-flex">
+                    class="col-4 header-middle_logo d-flex justify-content-center ps-5 ms-5">
                     <div class="logo me-5 pe-5">
                         <a href="../../html/index.html"><img class="ps-5 ms-3" style="width:70%; height:auto;" src="../../image/logo.png" alt="logo" /></a>
                     </div>
