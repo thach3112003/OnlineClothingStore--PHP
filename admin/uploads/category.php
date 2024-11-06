@@ -41,10 +41,10 @@
 
     <body>
 
-        <?php include 'header.php'; ?>
+        <?php include '../inc/header.php'; ?>
         <div class="d-inline-flex w-100">
             <div style="width: 200px;">
-                <?php include 'menu-slider.php'; ?>
+                <?php include '../inc/menu-slider.php'; ?>
             </div>
             <div class="w-100">
                 <main class="w-100 pe-5 pt-5 mt-5 ps-5">
@@ -56,7 +56,7 @@
                                 <option value="name">Name</option>
                             </select>
                             <button class="btn btn-outline-success d-flex justify-content-center align-content-center" data-bs-toggle="modal" data-bs-target="#productModal">
-                                <p class="mb-0">Thêm sản phẩm |</p>
+                                <p class="mb-0">Thêm loại sản phẩm |</p>
                                 <i class="mb-0 mt-1 ms-1 fa-solid fa-plus"></i>
                             </button>
                             <?php
@@ -78,7 +78,7 @@
                                         <form action="category.php" method="POST">
                                             <div class="mb-3">
                                                 <label for="productName" class="form-label">Tên loại sản phẩm</label>
-                                                <input type="text" class="form-control" id="productName" name="catName" placeholder="Nhập tên sản phẩm" required>
+                                                <input type="text" class="form-control" id="productName" name="catName" placeholder="Nhập tên loại sản phẩm" required>
                                             </div>
                                             <button type="submit" name="submit" class="btn btn-outline btn-success justify-content-center">Lưu</button>
                                         </form>
@@ -129,11 +129,11 @@
                     </div>
 
                     <!-- Modal sửa danh mục -->
-                    <div class="modal fade" id="editproductModal" tabindex="-1" aria-labelledby="editproductModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editproductModal" tabindex="-1" aria-labelledby="editcatModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="editproductModalLabel">Sửa Loại Sản Phẩm</h5>
+                                    <h5 class="modal-title" id="editcatModalLabel">Sửa Loại Sản Phẩm</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">

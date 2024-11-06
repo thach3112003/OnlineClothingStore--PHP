@@ -20,7 +20,7 @@
                  </a>
              </li>
              <li class="nav-item w-100">
-                 <a href="" class="nav-link">
+                 <a href="product.php" class="nav-link">
                      <i class="fa fa-shirt"></i>
                      <p class="menu-item">Sản phẩm</p>
                  </a>

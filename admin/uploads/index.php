@@ -25,8 +25,8 @@
 
 <body>
   <?php
-  include('header.php');
-  include('menu-slider.php');
+  include('../inc/header.php');
+  include('../inc/menu-slider.php');
   ?>
   <!-- <div class="container-fluid">
     <!------------- Section header------------->
