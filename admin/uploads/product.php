@@ -29,6 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: product.php");
         exit(); // Đảm bảo script dừng lại ở đây
     }
+    if (isset($_POST['submit_delete']) && isset($_POST['productId'])) {
+        $id = $_POST['productId'];
+        $deletePd = $pd->delete_product($id);
+        header("Location: product.php");
+        exit();
+    }
 }
 ?>
 
@@ -99,8 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                 if ($catlist) {
                                                     while ($result = $catlist->fetch_assoc()) {
                                                 ?>
-                                                <option value=<?php echo $result['catId'] ?>>
-                                                    <?php echo $result['catName'] ?></option>
+                                                        <option value=<?php echo $result['catId'] ?>>
+                                                            <?php echo $result['catName'] ?></option>
                                                 <?php }
                                                 }
                                                 ?>
@@ -154,23 +160,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 if ($show_pd) {
                                     while ($result = $show_pd->fetch_assoc()) {
                                 ?>
-                                <tr>
-                                    <td><?php echo $result['productId'] ?></td>
-                                    <td><?php echo $result['productName'] ?></td>
-                                    <td><?php echo $result['catName'] ?></td>
-                                    <td><?php echo $result['price'] ?></td>
-                                    <td><?php echo $result['quantity'] ?></td>
-                                    <td><?php echo $result['description'] ?></td>
-                                    <td><img src="../uploads/image_product/<?php echo trim($result['image']) ?>"
-                                            width="80"></td>
-                                    <td>
-                                        <!-- Nút chỉnh sửa trong hàng của bảng -->
-                                        <i class="fa-regular fa-pen-to-square me-1"
-                                            onclick="window.location.href='product.php?edit_id=<?php echo $result['productId']; ?>';"></i>
-                                        || <i class="ms-1 fa-regular fa-trash-can" data-bs-toggle="modal"
-                                            data-bs-target="#delModal"></i>
-                                    </td>
-                                </tr>
+                                        <tr>
+                                            <td><?php echo $result['productId'] ?></td>
+                                            <td><?php echo $result['productName'] ?></td>
+                                            <td><?php echo $result['catName'] ?></td>
+                                            <td><?php echo $result['price'] ?></td>
+                                            <td><?php echo $result['quantity'] ?></td>
+                                            <td><?php echo $result['description'] ?></td>
+                                            <td><img src="../uploads/image_product/<?php echo trim($result['image']) ?>"
+                                                    width="80"></td>
+                                            <td>
+                                                <!-- Nút chỉnh sửa trong hàng của bảng -->
+                                                <i class="fa-regular fa-pen-to-square me-1"
+                                                    onclick="window.location.href='product.php?edit_id=<?php echo $result['productId']; ?>';"></i>
+                                                ||
+                                                <i class="ms-1 fa-regular fa-trash-can"
+                                                    onclick="setDeleteData('<?php echo $result['productId']; ?>')"
+                                                    data-bs-toggle="modal" data-bs-target="#delModal"></i>
+                                            </td>
+                                        </tr>
                                 <?php }
                                 }
                                 ?>
@@ -194,49 +202,49 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="modal-body">
                                 <?php if ($editProductData && $result_product = $editProductData->fetch_assoc()) { ?>
-                                <form action="product.php" method="POST">
-                                    <input type="hidden" name="productId"
-                                        value="<?php echo $result_product['productId']; ?>">
+                                    <form action="product.php" method="POST">
+                                        <input type="hidden" name="productId"
+                                            value="<?php echo $result_product['productId']; ?>">
 
-                                    <div class="mb-3">
-                                        <label for="productName" class="form-label">Tên sản phẩm</label>
-                                        <input type="text" class="form-control" id="productName" name="productName"
-                                            value="<?php echo $result_product['productName']; ?>" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="category" class="form-label">Loại sản phẩm</label>
-                                        <select name="category" class="form-select">
-                                            <option value="">--Chọn danh mục--</option>
-                                            <?php
+                                        <div class="mb-3">
+                                            <label for="productName" class="form-label">Tên sản phẩm</label>
+                                            <input type="text" class="form-control" id="productName" name="productName"
+                                                value="<?php echo $result_product['productName']; ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="category" class="form-label">Loại sản phẩm</label>
+                                            <select name="category" class="form-select">
+                                                <option value="">--Chọn danh mục--</option>
+                                                <?php
                                                 $catlist = $cat->show_category();
                                                 if ($catlist) {
                                                     while ($result = $catlist->fetch_assoc()) {
                                                 ?>
-                                            <option value="<?php echo $result['catId']; ?>"
-                                                <?php echo ($result_product['catId'] == $result['catId'] ? 'selected' : ''); ?>>
-                                                <?php echo $result['catName']; ?></option>
-                                            <?php }
+                                                        <option value="<?php echo $result['catId']; ?>"
+                                                            <?php echo ($result_product['catId'] == $result['catId'] ? 'selected' : ''); ?>>
+                                                            <?php echo $result['catName']; ?></option>
+                                                <?php }
                                                 }
                                                 ?>
-                                        </select>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="price" class="form-label">Giá sản phẩm</label>
-                                        <input type="text" class="form-control" id="price" name="price"
-                                            value="<?php echo $result_product['price']; ?>" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="description" class="form-label">Mô tả</label>
-                                        <textarea class="form-control"
-                                            name="description"><?php echo $result_product['description']; ?></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="quantity" class="form-label">Số lượng</label>
-                                        <input type="text" class="form-control" id="quantity" name="quantity"
-                                            value="<?php echo $result_product['quantity']; ?>" required>
-                                    </div>
-                                    <button type="submit" name="submit_update" class="btn btn-success">Sửa</button>
-                                </form>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">Giá sản phẩm</label>
+                                            <input type="text" class="form-control" id="price" name="price"
+                                                value="<?php echo $result_product['price']; ?>" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="description" class="form-label">Mô tả</label>
+                                            <textarea class="form-control"
+                                                name="description"><?php echo $result_product['description']; ?></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="quantity" class="form-label">Số lượng</label>
+                                            <input type="text" class="form-control" id="quantity" name="quantity"
+                                                value="<?php echo $result_product['quantity']; ?>" required>
+                                        </div>
+                                        <button type="submit" name="submit_update" class="btn btn-success">Sửa</button>
+                                    </form>
                                 <?php } ?>
                             </div>
                         </div>
@@ -257,7 +265,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                                <button type="button" class="btn btn-danger">Xóa</button>
+
+                                <form action="product.php" method="POST"
+                                    onsubmit="setDeleteData('<?php echo $result['productId']; ?>')">
+                                    <input type="hidden" id="delProductId" name="productId">
+                                    <button type="submit" name="submit_delete" class="btn btn-danger">Xác Nhận</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -268,23 +281,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <script>
-    function setEditData(productId) {
-        // Gán productId vào input hidden của modal
-        document.getElementById('editProductId').value = productId;
-    }
+        function setEditData(productId) {
+            // Gán productId vào input hidden của modal
+            document.getElementById('editProductId').value = productId;
+        }
 
-    function setDeleteData(catId) {
-        document.getElementById('delCatId').value = catId;
-    }
+        function setDeleteData(productId) {
+
+            document.getElementById('delProductId').value = productId;
+
+            if (delProductInput) {
+                delProductInput.value = productId;
+                console.log("ID cần xóa:", productId);
+            } else {
+                console.error("Không tìm thấy phần tử có ID 'delProductId'");
+            }
+        }
     </script>
     <script>
-    // Tự động mở modal nếu có dữ liệu chỉnh sửa
-    document.addEventListener("DOMContentLoaded", function() {
-        if (window.location.search.includes('edit_id')) {
-            var myModal = new bootstrap.Modal(document.getElementById('editproductModal'));
-            myModal.show();
-        }
-    });
+        // Tự động mở modal nếu có dữ liệu chỉnh sửa
+        document.addEventListener("DOMContentLoaded", function() {
+            if (window.location.search.includes('edit_id')) {
+                var myModal = new bootstrap.Modal(document.getElementById('editproductModal'));
+                myModal.show();
+            }
+        });
     </script>
 
 </body>

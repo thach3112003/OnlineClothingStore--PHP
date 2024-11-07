@@ -152,4 +152,15 @@ class product
         </script>
     ";
     }
+    public function delete_product($id)
+    {
+        $query = "DELETE FROM tbl_product WHERE productId = '$id'";
+        $result = $this->db->delete($query);
+
+        if ($result) {
+            return $this->showModal('Thông báo', 'Xóa thành công!', 'success');
+        } else {
+            return $this->showModal('Thông báo', 'Xóa thất bại!', 'danger');
+        }
+    }
 }
