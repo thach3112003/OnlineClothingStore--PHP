@@ -1,6 +1,11 @@
 <?php
-include '../../config/congif.php'
+$filepath = realpath(dirname(__FILE__));
+
+include(BASE_PATH . '/config/config.php');
 ?>
+
+
+
 <?php
 class Database
 {

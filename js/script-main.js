@@ -1,18 +1,23 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const itemsliderbar = document.querySelectorAll(".cartegory-left-li"); // Chọn đúng phần tử con của ul
+  // Xử lý các phần tử trong itemsliderbar
+  const itemsliderbar = document.querySelectorAll(".cartegory-left-li");
   itemsliderbar.forEach(function (menu) {
     menu.addEventListener("click", function () {
       menu.classList.toggle("block");
     });
   });
-});
-// Header stiky
-const header = document.querySelector(".navbar");
-window.addEventListener("scroll", function () {
-  x = window.scrollY;
-  if (x > 0) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
+
+  // Xử lý header sticky
+  const navbarHeader = document.querySelector(".navbar");
+  if (navbarHeader) {
+    // Kiểm tra nếu navbarHeader tồn tại
+    window.addEventListener("scroll", function () {
+      const x = window.scrollY;
+      if (x > 0) {
+        navbarHeader.classList.add("sticky");
+      } else {
+        navbarHeader.classList.remove("sticky");
+      }
+    });
   }
 });

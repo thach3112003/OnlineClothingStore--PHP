@@ -1,7 +1,11 @@
 <?php
-
-include '../../lib/database.php';
-include '../../helpers/format.php';
+$filepath = realpath(dirname(__FILE__));
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '/..');
+}
+include(BASE_PATH . '/config/config.php');
+include_once(BASE_PATH . '/lib/database.php');
+include_once(BASE_PATH . '/helpers/format.php');
 ?>
 
 <?php
@@ -99,5 +103,21 @@ class category
         } else {
             return $this->showModal('Thông báo', 'Xóa thất bại!', 'danger');
         }
+    }
+    public function get_category()
+    {
+
+        $query = "SELECT tbl_category.catName
+            FROM tbl_product
+            JOIN tbl_category ON tbl_product.catId = tbl_category.catId
+            WHERE tbl_product.productId = 'productId'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_category_from_id($catID)
+    {
+        $query = "SELECT catName FROM tbl_category where catId = '$catID'";
+        $result = $this->db->select($query);
+        return $result;
     }
 }

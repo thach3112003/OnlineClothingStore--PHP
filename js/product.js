@@ -77,3 +77,10 @@ smallImg.forEach(function (imgItem, X) {
     bigImg.src = imgItem.src;
   });
 });
+document
+  .querySelectorAll(".product-content-left-smallImg img")
+  .forEach((img) => {
+    img.addEventListener("click", function () {
+      document.querySelector(".product-content-left-bigImg img").src = this.src;
+    });
+  });

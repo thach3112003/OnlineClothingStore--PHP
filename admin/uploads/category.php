@@ -1,4 +1,11 @@
-    <?php include('../../classes/addCategory.php'); ?>
+    <?php
+    $filepath = realpath(dirname(__FILE__));
+    if (!defined('BASE_PATH')) {
+        define('BASE_PATH', __DIR__ . '/../..');
+    }
+    include(BASE_PATH . '/config/config.php');
+    include(BASE_PATH . '/classes/category.php');
+    ?>
     <?php
 
     $cat = new category();
@@ -50,12 +57,14 @@
                 <main class="w-100 pe-5 pt-5 mt-5 ps-5">
                     <div class="content mt-5">
                         <div class="dashboard-header d-inline-flex">
-                            <input class="" type="text" placeholder="Search" name="searchcategoryinput" id="searchcategoryinput" />
+                            <input class="" type="text" placeholder="Search" name="searchcategoryinput"
+                                id="searchcategoryinput" />
                             <select class="btn btn--hover me-5" name="searchcategoryvalue" id="searchcategoryvalue">
                                 <option value="id">Id</option>
                                 <option value="name">Name</option>
                             </select>
-                            <button class="btn btn-outline-success d-flex justify-content-center align-content-center" data-bs-toggle="modal" data-bs-target="#productModal">
+                            <button class="btn btn-outline-success d-flex justify-content-center align-content-center"
+                                data-bs-toggle="modal" data-bs-target="#productModal">
                                 <p class="mb-0">Thêm loại sản phẩm |</p>
                                 <i class="mb-0 mt-1 ms-1 fa-solid fa-plus"></i>
                             </button>
@@ -67,20 +76,24 @@
                         </div>
 
                         <!-- Modal Thêm sản phẩm -->
-                        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel"
+                            aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="productModalLabel">Thêm Loại Sản Phẩm</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <form action="category.php" method="POST">
                                             <div class="mb-3">
                                                 <label for="productName" class="form-label">Tên loại sản phẩm</label>
-                                                <input type="text" class="form-control" id="productName" name="catName" placeholder="Nhập tên loại sản phẩm" required>
+                                                <input type="text" class="form-control" id="productName" name="catName"
+                                                    placeholder="Nhập tên loại sản phẩm" required>
                                             </div>
-                                            <button type="submit" name="submit" class="btn btn-outline btn-success justify-content-center">Lưu</button>
+                                            <button type="submit" name="submit"
+                                                class="btn btn-outline btn-success justify-content-center">Lưu</button>
                                         </form>
                                     </div>
                                 </div>
@@ -114,8 +127,12 @@
                                                 <td><?php echo $result['catName']; ?></td>
                                                 <td>
                                                     <!-- Nút chỉnh sửa trong hàng của bảng -->
-                                                    <i class="fa-regular fa-pen-to-square me-1" data-bs-toggle="modal" data-bs-target="#editproductModal" onclick="setEditData('<?php echo $result['catId']; ?>', '<?php echo $result['catName']; ?>')"></i>
-                                                    || <i class="ms-1 fa-regular fa-trash-can" data-bs-toggle="modal" data-bs-target="#delModal" onclick="setDeleteData('<?php echo $result['catId']; ?>')"></i>
+                                                    <i class="fa-regular fa-pen-to-square me-1" data-bs-toggle="modal"
+                                                        data-bs-target="#editproductModal"
+                                                        onclick="setEditData('<?php echo $result['catId']; ?>', '<?php echo $result['catName']; ?>')"></i>
+                                                    || <i class="ms-1 fa-regular fa-trash-can" data-bs-toggle="modal"
+                                                        data-bs-target="#delModal"
+                                                        onclick="setDeleteData('<?php echo $result['catId']; ?>')"></i>
                                                 </td>
                                             </tr>
                                     <?php
@@ -129,21 +146,25 @@
                     </div>
 
                     <!-- Modal sửa danh mục -->
-                    <div class="modal fade" id="editproductModal" tabindex="-1" aria-labelledby="editcatModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="editproductModal" tabindex="-1" aria-labelledby="editcatModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="editcatModalLabel">Sửa Loại Sản Phẩm</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form action="category.php" method="POST">
                                         <input type="hidden" id="editCatId" name="catId">
                                         <div class="mb-3">
                                             <label for="editCatName" class="form-label">Tên loại sản phẩm</label>
-                                            <input type="text" class="form-control" id="editCatName" name="catName" required>
+                                            <input type="text" class="form-control" id="editCatName" name="catName"
+                                                required>
                                         </div>
-                                        <button type="submit" name="submit_update" class="btn btn-outline btn-success">Lưu</button>
+                                        <button type="submit" name="submit_update"
+                                            class="btn btn-outline btn-success">Lưu</button>
                                     </form>
                                 </div>
                             </div>
@@ -151,13 +172,15 @@
                     </div>
                     <!---------------------------- Modal xóa ------------------>
                     <!-- Modal Xóa -->
-                    <div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="delModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="delModalLabel"
+                        aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
 
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="delModalLabel">Xác Nhận</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     Bạn có chắc chắn muốn xóa danh mục này?
@@ -167,7 +190,8 @@
                                     <form action="category.php" method="POST">
                                         <input type="hidden" id="delCatId" name="catId">
 
-                                        <button type="submit" name="submit_delete" class="btn btn-danger">Xác Nhận</button>
+                                        <button type="submit" name="submit_delete" class="btn btn-danger">Xác
+                                            Nhận</button>
                                     </form>
                                 </div>
                             </div>

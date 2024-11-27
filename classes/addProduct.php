@@ -1,7 +1,11 @@
 <?php
-
-include_once '../../lib/database.php';
-include_once '../../helpers/format.php';
+$filepath = realpath(dirname(__FILE__));
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', __DIR__ . '/..');
+}
+include(BASE_PATH . '/config/config.php');
+include_once(BASE_PATH . '/lib/database.php');
+include_once(BASE_PATH . '/helpers/format.php');
 ?>
 
 <?php
@@ -23,6 +27,13 @@ class product
         $quantity = mysqli_real_escape_string($this->db->link, $data['quantity']);
         $description = mysqli_real_escape_string($this->db->link, $data['description']);
 
+
+
+
+        $features = isset($data['features']) ? $data['features'] : [];
+        $feature = implode(',', $features);
+        $feature = mysqli_real_escape_string($this->db->link, $feature);
+
         // Thêm hình ảnh (file)
         //kiểm tra và lấy hình ảnh cho vào folder upload
         $permited = array('jpg', 'jpeg', 'png', 'gif');
@@ -40,7 +51,7 @@ class product
             return $this->showModal('Thông báo', 'Thêm thất bại, không đủ dữ liệu!', 'danger');
         } else {
             move_uploaded_file($file_temp, $uploaded_image);
-            $query = "INSERT INTO tbl_product(productName,catId,price,quantity,description,image) VALUES('$productName','$category','$price','$quantity','$description','$unique_image')";
+            $query = "INSERT INTO tbl_product(productName,catId,price,quantity,description,image,feature) VALUES('$productName','$category','$price','$quantity','$description','$unique_image','$feature')";
             $results = $this->db->insert($query);
             if ($results) {
                 return $this->showModal('Thông báo', 'Thêm sản phẩm thành công', 'success');
@@ -65,18 +76,25 @@ class product
         $quantity = mysqli_real_escape_string($this->db->link, $data['quantity']);
         $description = mysqli_real_escape_string($this->db->link, $data['description']);
 
+
+
+
+        $features = isset($data['features']) ? $data['features'] : [];
+        $feature = implode(',', $features);
+        $feature = mysqli_real_escape_string($this->db->link, $feature);
+
         // Thêm hình ảnh (file)
-        // kiểm tra và lấy hình ảnh cho vào folder upload
+        //kiểm tra và lấy hình ảnh cho vào folder upload
         $permited = array('jpg', 'jpeg', 'png', 'gif');
-        $file_name = $files['image']['name'];
-        $file_size = $files['image']['size'];
-        $file_temp = $files['image']['tmp_name'];
+        $file_name = $_FILES['image']['name'];
+        $file_size = $_FILES['image']['size'];
+        $file_temp = $_FILES['image']['tmp_name'];
 
         $div = explode('.', $file_name);
-        $file_ext = strtolower(end($div));
-        $unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
-        $uploaded_image = '../uploads/image_product/' . $unique_image;
 
+        $file_ext = strtolower(end($div));
+        $unique_image = substr(md5(time()), 0, 10) . ('.') . $file_ext;
+        $uploaded_image = '../uploads/image_product/'   . $unique_image;
         if ($productName == "" || $category == "" || $price == "" || $quantity == "" || $description == "") {
             return $this->showModal('Thông báo', 'Cập nhật thất bại, không đủ dữ liệu!', 'danger');
         } else {
@@ -96,7 +114,8 @@ class product
                 price = '$price',
                 quantity = '$quantity',
                 description = '$description',
-                image = '$unique_image'
+                image = '$unique_image',
+                feature = '$feature'
                 WHERE productId = '$id'";
             } else {
                 // Nếu không có ảnh mới
@@ -105,7 +124,8 @@ class product
                 catId = '$category',
                 price = '$price',
                 quantity = '$quantity',
-                description = '$description'
+                description = '$description',
+                feature = '$feature'
                 WHERE productId = '$id'";
             }
         }
@@ -162,5 +182,30 @@ class product
         } else {
             return $this->showModal('Thông báo', 'Xóa thất bại!', 'danger');
         }
+    }
+    ///END ADMin
+    public function get_product_new()
+    {
+        $query = "SELECT * FROM tbl_product where feature ='new' OR  feature ='bestSeller,new'  LIMIT 5";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_product_bestSeller()
+    {
+        $query = "SELECT * FROM tbl_product where feature ='bestSeller' OR  feature ='bestSeller,new'  LIMIT 5";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_details_product($id)
+    {
+        $query = "SELECT tbl_product.*, tbl_category.catName FROM tbl_product INNER JOIN tbl_category ON tbl_product.catId = tbl_category.catId where tbl_product.productId ='$id'";
+        $result = $this->db->select($query);
+        return $result;
+    }
+    public function get_product_by_category($catID)
+    {
+        $query = "SELECT tbl_product.* FROM tbl_product INNER JOIN tbl_category WHERE tbl_product.catId = tbl_category.catId and tbl_category.catId ='$catID'";
+        $result = $this->db->select($query);
+        return $result;
     }
 }

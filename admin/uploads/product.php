@@ -1,6 +1,7 @@
-<?php include('../../classes/addCategory.php'); ?>
+<?php include('../../classes/category.php'); ?>
 <?php include('../../classes/addProduct.php'); ?>
 <?php
+
 $pd = new product();
 $editProductData = null;
 
@@ -65,12 +66,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <main class="w-100 pe-5 pt-5 mt-5 ps-5">
                 <div class="content mt-5">
                     <div class="dashboard-header d-inline-flex">
-                        <input class="" type="text" placeholder="Search" name="searchcategoryinput"
+                        <!-- <input class="" type="text" placeholder="Search" name="searchcategoryinput"
                             id="searchcategoryinput" />
                         <select class="btn btn--hover me-5" name="searchcategoryvalue" id="searchcategoryvalue">
                             <option value="id">Id</option>
                             <option value="name">Name</option>
-                        </select>
+                        </select> -->
                         <button class="btn btn-outline-success d-flex justify-content-center align-content-center"
                             data-bs-toggle="modal" data-bs-target="#productModal">
                             <p class="mb-0">Thêm sản phẩm |</p>
@@ -130,6 +131,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         <div class="mb-3">
                                             <input type="file" class="form-control" name="image">
                                         </div>
+                                        <div class="mb-3">
+
+                                            <label for="">Best seller</label>
+                                            <input type="checkbox" class="chbox-feature me-5" name="features[]"
+                                                value="bestSeller">
+
+                                            <label for="">New</label>
+                                            <input type="checkbox" class="chbox-feature" name="features[]" value="new">
+                                        </div>
                                         <button type="submit" name="submit"
                                             class="btn btn-outline btn-success justify-content-center">Lưu</button>
                                     </form>
@@ -150,6 +160,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th>Mô tả</th>
+                                    <th>Đặc tính</th>
                                     <th>Hình ảnh</th>
                                     <th>Hành động</th>
                                 </tr>
@@ -167,6 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <td><?php echo $result['price'] ?></td>
                                             <td><?php echo $result['quantity'] ?></td>
                                             <td><?php echo $result['description'] ?></td>
+                                            <td><?php echo $result['feature'] ?></td>
                                             <td><img src="../uploads/image_product/<?php echo trim($result['image']) ?>"
                                                     width="80"></td>
                                             <td>
@@ -242,6 +254,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                             <label for="quantity" class="form-label">Số lượng</label>
                                             <input type="text" class="form-control" id="quantity" name="quantity"
                                                 value="<?php echo $result_product['quantity']; ?>" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div><img width="50"
+                                                    src="../uploads/image_product/<?php echo $result_product['image'] ?>">
+                                            </div>
+                                            <input type="file" class="form-control" name="image">
+                                        </div>
+                                        <div class="mb-3">
+
+                                            <label for="">Best seller</label>
+                                            <input type="checkbox" class="chbox-feature me-5" name="features[]"
+                                                value="bestSeller">
+                                            <label for="">New</label>
+                                            <input type="checkbox" class="chbox-feature" name="features[]" value="new">
                                         </div>
                                         <button type="submit" name="submit_update" class="btn btn-success">Sửa</button>
                                     </form>

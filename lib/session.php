@@ -1,5 +1,5 @@
 <?php
-
+$filepath = realpath(dirname(__FILE__));
 /**
  *Session Class
  **/

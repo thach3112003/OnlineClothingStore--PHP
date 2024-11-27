@@ -1,8 +1,10 @@
 <?php
+
+include_once(BASE_PATH . '/lib/database.php');
+include_once(BASE_PATH . '/helpers/format.php');
 include '../../lib/session.php';
 Session::checkLogin();
-include '../../lib/database.php';
-include '../../helpers/format.php';
+
 ?>
 
 <?php
